@@ -1,91 +1,68 @@
 import random
 
-phonebook = {'Chris':'555−1111',
-             'Katie':'555−2222',
-             'Joanne':'555−3333'}
+phonebook = {}
+phonebook = {"Chris": "555−1111", "Katie": "555−2222", "Joanne": "555−3333"}
 
-
-
-print()
-print('*****  start section 1 - print dictionary ********')
-print()
-
-
-
-
+"""
+##Key will always be on the left and the right hand value can be anything
+# Python is object oriented language
+# A list can be a list of dictionaries and a dictionary can be a dictiontionary of lists
 
 print()
-print('*****  end section 1 ********')
+print("*****  start section 1 - print dictionary ********")
 print()
 
 
-'''
+mydictionary = dict(m=8, n=9)
+print(mydictionary)
 
-
-print()
-print('*****  start section 2 - search dictionary ********')
-print()
-
-
-
-
-
-
+print(len(phonebook))
+print(type(phonebook))
 
 print()
-print('*****  end section 2 ********')
-print()
-
-
-
-
-
-
-
-print()
-print('*****  start section 3 - edit/append dictionary ********')
-print()
-
-
-
-
-
-print()
-print('*****  end section 3 ********')
-print()
-
-
-
-
-
-
-print()
-print('*****  start section 4 - delete/remove from dictionary ********')
+print("*****  end section 1 ********")
 print()
 
 
 
 
 print()
-print('*****  end section 4 ********')
+print("*****  start section 2 - search dictionary ********")
+print()
+
+name = "chris"
+###phone = (phonebook["Chris"]) ##Case sensitive
+# print (phone)
+
+
+if name in phonebook:
+    print(phonebook[name])
+else:
+    print(f"{name} is not in the phonebook")
+
+
+print()
+print("*****  end section 2 ********")
 print()
 
 
 
 
+print()
+print("*****  start section 3 - edit/append dictionary ********")
+print()
+
+##Dictionaries are mutable
+print(phonebook)
+
+phonebook["Chris"] = "555-0123"
+phonebook["Joe"] = "555-4444"
+
+print(phonebook)
 
 
 print()
-print('*****  start section 5 - iterate through keys, values, items ********')
-print()
-
-
-
-
-
-
-print()
-print('*****  end section 5 ********')
+print("*****  end section 3 ********")
 print()
 
 
@@ -93,66 +70,108 @@ print()
 
 
 print()
-print('*****  start section 6 - using get and clear ********')
+print("*****  start section 4 - delete/remove from dictionary ********")
+print()
+
+print(phonebook)
+
+del phonebook["Chris"]
+
+print(phonebook)
+
+
+print()
+print("*****  end section 4 ********")
 print()
 
 
 
 
+print()
+print("*****  start section 5 - iterate through keys, values, items ********")
+print()
+
+for key in phonebook:  # key is just a random variable name
+    print(f"the key is {key} and the value is {phonebook [key]}")
 
 
 print()
-print('*****  end section 6 ********')
+print("*****  end section 5 ********")
 print()
 
+for value in phonebook.values():
+    print(value)
 
 
-print()
-print('*****  start section 7 - using pop method ********')
-print()
+for key, value in phonebook.items():
+    print(f"the key is {key} and the value is {value}")
 
-
-
-
-
-
-print()
-print('*****  end section 7 ********')
-print()
-
+for ph_tuple in phonebook.items(): #if you only specify one value it become a tuple. If you gve two then it splits it up for you
+    print(ph_tuple)
 
 
 print()
-print('*****  start section 8 - using popitem ********')
+print("*****  start section 6 - using get and clear ********")
 print()
 
+phone = phonebook.get("Chris", "999")
+print(phone)
 
-
-
-
-
-print()
-print('*****  end section 8 ********')
-print()
-
+phonebook.clear() #clears dictionary so there is nothing in it 
+print(phonebook)
 
 
 print()
-print('*****  start section 9 - using random and converting to list ********')
+print("*****  end section 6 ********")
 print()
 
 
 
+print()
+print("*****  start section 7 - using pop method ********")
+print()
+
+remove = phonebook.pop("Chris", "not found")
+print(remove)
+print(phonebook)
 
 
 print()
-print('*****  end section 9 ********')
+print("*****  end section 7 ********")
 print()
 
 
-'''
+
+print()
+print("*****  start section 8 - using popitem ********")
+print()
 
 
+a = phonebook.popitem() #will always pop out the last item. No direct random pop in dictionaries 
+print(a)
+print(phonebook)
 
 
+print()
+print("*****  end section 8 ********")
+print()
 
+"""
+
+print()
+print("*****  start section 9 - using random and converting to list ********")
+print()
+
+phonebook_list = list(phonebook)
+print(phonebook_list)
+random_key = random.choice(phonebook_list)
+print(random_key)
+print(phonebook[random_key])
+# don't want to use variable where you don't need them
+
+print(phonebook[random.choice(list(phonebook))])  # prefers this method instead
+
+
+print()
+print("*****  end section 9 ********")
+print()
