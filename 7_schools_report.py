@@ -1,4 +1,5 @@
 """
+
 Process the JSON file named school_data.json. Display only those schools 
 that are part of the ACC, Big 12, Big Ten, Pac-12 and SEC divisons. This
 information can be found in the ValueLabels file.
@@ -17,3 +18,54 @@ Display report for all universities that have a total price for in-state student
 
 
 """
+
+
+import json
+
+infile = open("school_data.json", "r")
+schools = json.load(infile)
+# print(type(schools))
+
+conference_schools = [372, 108, 107, 130]
+# print(type(schools))
+
+# schools in file
+
+# print(len(schools))
+"""
+
+for school in schools:
+    if school["NCAA"]["NAIA conference number football (IC2020)"] in conference_schools:
+        if school["Graduation rate  women (DRVGR2020)"] > 80:
+            print(school["instnm"])
+            print(school["Graduation rate  women (DRVGR2020)"])
+            print()
+            print()
+
+"""
+####PART 2
+for school in schools:
+    if school["NCAA"]["NAIA conference number football (IC2020)"] in conference_schools:
+        if (
+            school[
+                "Total price for out-of-state students living off campus (not with family)  2020-21 (DRVIC2020)"
+            ]
+            is None
+        ):
+            school[
+                "Total price for out-of-state students living off campus (not with family)  2020-21 (DRVIC2020)"
+            ] = 0
+        elif (
+            school[
+                "Total price for out-of-state students living off campus (not with family)  2020-21 (DRVIC2020)"
+            ]
+            > 50000
+        ):
+            print(school["instnm"])
+            print(
+                school[
+                    "Total price for out-of-state students living off campus (not with family)  2020-21 (DRVIC2020)"
+                ]
+            )
+            print()
+            print()
