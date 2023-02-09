@@ -1,3 +1,4 @@
+# finished
 person = {}
 person["fname"] = "Joe"
 person["lname"] = "Fonebone"
@@ -12,11 +13,13 @@ person["pets"] = {"dog": "Fido", "cat": "Sox"}
 print(person["children"][1])
 
 # print out the name of the cat
-print(person["pets"])
-
+print(person["pets"]["cat"])
 
 # iterate through all children and print out each child
-
+for y in person["children"]:
+    print(y)
 
 # Print out the pets in this format
 # type of pet: dog name of pet: Fido
+for key, value in person["pets"].items():
+    print(f"type of pet: {key} name of pet: {value}")
