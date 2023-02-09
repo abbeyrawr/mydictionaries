@@ -1,9 +1,10 @@
+"""
+#finished
 # Below is a dictionary that contains information about real estate space for
 # a doctor's office. Using the dictionary, create a csv file that has details
 # for each space represented as rows. Name your file 'retail_space.csv.
-
-
-'''
+"""
+"""
 Your final output should look like:
 
 room-number,use,sq-ft,price
@@ -13,37 +14,30 @@ room-number,use,sq-ft,price
 103,examination,125,150
 104,office,150,100
 
-'''
+"""
 
+import csv
 
-
-
-datastore = { "medical":[
-      { "room-number": 100,
-        "use": "reception",
-        "sq-ft": 50,
-        "price": 75
-      },
-      { "room-number": 101,
-        "use": "waiting",
-        "sq-ft": 250,
-        "price": 75
-      },
-      { "room-number": 102,
-        "use": "examination",
-        "sq-ft": 125,
-        "price": 150
-      },
-      { "room-number": 103,
-        "use": "examination",
-        "sq-ft": 125,
-        "price": 150
-      },
-      { "room-number": 104,
-        "use": "office",
-        "sq-ft": 150,
-        "price": 100
-      }
-
-      ]
+datastore = {
+    "medical": [
+        {"room-number": 100, "use": "reception", "sq-ft": 50, "price": 75},
+        {"room-number": 101, "use": "waiting", "sq-ft": 250, "price": 75},
+        {"room-number": 102, "use": "examination", "sq-ft": 125, "price": 150},
+        {"room-number": 103, "use": "examination", "sq-ft": 125, "price": 150},
+        {"room-number": 104, "use": "office", "sq-ft": 150, "price": 100},
+    ]
 }
+
+of = open("retail_space.csv", "w", newline="")
+of.write("room-number, use, sq-ft, price\n")
+
+dict1 = datastore["medical"]
+for x in dict1:
+    room_num = x["room-number"]
+    use = x["use"]
+    sq = x["sq-ft"]
+    price = x["price"]
+
+    of.write(str(room_num) + "," + use + "," + str(sq) + "," + str(price) + "\n")
+
+of.close()
